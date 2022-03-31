@@ -1,27 +1,66 @@
-import React, { Fragment } from 'react'
+import React, { Fragment , useEffect} from 'react'
+import {useDispatch,useSelector} from 'react-redux';
+import  {getProductDetails, clearErrors} from '../../actions/productActions';
+import {useAlert} from 'react-alert';
+import Loader from '../layout/Loader';
+import Metadata from '../layout/Metadata';
+import { useParams } from 'react-router-dom';
+import {Carousel} from 'react-bootstrap';
+
+
 
 const ProductDetails = () => {
+    let params = useParams();
+    console.log(params.id);
+    const {loading, error, product } = useSelector(state => state.productDetails)   
+
+    const dispatch = useDispatch();
+    const alert =useAlert();
+
+    useEffect(() => {
+      
+        dispatch(getProductDetails(params.id));
+        
+        if(error){
+            alert.error(error);
+            dispatch(clearErrors());
+        }
+
+    }, [dispatch,alert,error])
+    
+
+    console.log(product)
+
   return (
-    <div className="container container-fluid">
+    <Fragment>
+    {loading ? <Loader/> : 
+    (<Fragment>
+        <div className="container container-fluid">
         <div className="row f-flex justify-content-around">
         <div className="col-12 col-lg-5 img-fluid" id="product_image">
-                <img src="https://i5.walmartimages.com/asr/1223a935-2a61-480a-95a1-21904ff8986c_1.17fa3d7870e3d9b1248da7b1144787f5.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff" alt="sdf" height="500" width="500" />
+            <Carousel pause='hover'  > 
+                {product.images && product.images.map(image => (
+                    <Carousel.Item key={image.public_id}>
+                            <img className="d-block w-50" src={image.url} alt={product.title} />
+                    </Carousel.Item>   
+                ))}
+            </Carousel>
         </div>
 
         <div className="col-12 col-lg-5 mt-5">
-        <h3>onn. 32” className HD (720P) LED Roku Smart TV (100012589)</h3>
-                <p id="product_id">Product # sklfjdk35fsdf5090</p>
+        <h3>{product.title}</h3>
+                <p id="product_id">Product # {product._id}</p>
 
                 <hr/>
 
                 <div className="rating-outer">
-                    <div className="rating-inner"></div>
+                <div className="rating-inner" style={{width: `${(product.ratings / 5) * 100}%`}}></div>
                 </div>
-                <span id="no_of_reviews">(5 Reviews)</span>
+                <span id="no_of_reviews">({product.numOfReviews} Reviews)</span>
 
                 <hr/>
 
-                <p id="product_price">$108.00</p>
+                <p id="product_price">${product.price}</p>
                 <div className="stockCounter d-inline">
                     <span className="btn btn-danger minus">-</span>
 
@@ -33,14 +72,14 @@ const ProductDetails = () => {
 
                 <hr/>
 
-                <p>Status: <span id="stock_status">In Stock</span></p>
+                <p>Status: <span id="stock_status">{product.stock ? "In Stock" : "Out of Stock" }</span></p>
 
                 <hr/>
 
                 <h4 className="mt-2">Description:</h4>
-                <p>Binge on movies and TV episodes, news, sports, music and more! We insisted on 720p High Definition for this 32" LED TV, bringing out more lifelike color, texture and detail. We also partnered with Roku to bring you the best possible content with thousands of channels to choose from, conveniently presented through your own custom home screen.</p>
+                <p>{product.description}</p>
                 <hr/>
-                <p id="product_seller mb-3">Sold by: <strong>Amazon</strong></p>
+                <p id="product_seller mb-3">Sold by: <strong>{product.seller}</strong></p>
 				
 				<button id="review_btn" type="button" className="btn btn-primary mt-4" data-toggle="modal" data-target="#ratingModal">
                             Submit Your Review
@@ -83,7 +122,10 @@ const ProductDetails = () => {
 				</div> 
 
         </div>
-    </div>
+        </div>
+        </Fragment>
+    )}
+    </Fragment>
     )
 }
 

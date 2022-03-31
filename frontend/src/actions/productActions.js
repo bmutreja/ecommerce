@@ -2,7 +2,6 @@ import axios from 'axios';
 import * as actionTypes from '../constant/productConstants';
 
 
-
 export const getProducts = ()=> async(dispatch) => {
     try{
         dispatch({
@@ -33,15 +32,15 @@ export const getProductDetails = (id)=> async(dispatch) => {
         });
 
         const {data}  = await axios.get(`/api/v1/product/${id}`);
-         console.log(data)   
+          
         dispatch({
             type: actionTypes.PRODUCT_DETAIL_SUCCESS,
-            payload: data
+            payload: data.product
         })
 
     }catch(error){ 
         dispatch({
-            type: actionTypes.ALL_PRODUCTS_FAIL,
+            type: actionTypes.PRODUCT_DETAIL_FAIL,
             payload: error.message
         })
     }
