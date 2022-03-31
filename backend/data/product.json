@@ -1,0 +1,31 @@
+[
+    {
+        "title" : "Sandics ultra 128gb pendrive",
+        "price" : "45.66",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquamnihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdamecusandae alias error harum maxime adipisci amet laborum. Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit",
+        "ratings": 4.5,
+        "images" : [{
+            "public_id": "products/asdasdasdasdasd",
+            "url" : "https://img2.gadgetsnow.com/gd/images/products/additional/original/G307450_View_1/computer-laptop/pen-drives/sandisk-cruzer-blade-32gb-usb-2-0-flash-drive-sdcz50-032g-b35-red-black-.jpg"}],
+        "category": "Electronics",
+        "seller": "Ebay",
+        "stock" : 20,
+        "numOfReviews": 32,
+        "reviews" : []
+    },
+    {
+        "title" : "One Plus mobile",
+        "price" : "2345",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquamnihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,tenetur error, harum nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa laudantium molestias eos sapiente officiis modi at sunt excepturi expedita sint? Sed quibusdamecusandae alias error harum maxime adipisci amet laborum. Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit",
+        "ratings": 4.5,
+        "images" : [{
+            "public_id": "products/asdasdasdasdasd",
+            "url" : "https://images2nwck8c0zc.cdn.e2enetworks.net/sangeethaecommerce/product_image/product_details_page/img_20220112_d9dd796909ebc5b021254ba3d2ddf62f.jpg"}],
+        "category": "Electronics",
+        "seller": "Ebay",
+        "stock" : 20,
+        "numOfReviews": 32,
+        "reviews" : []
+    }
+    
+]
